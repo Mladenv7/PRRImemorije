@@ -18,11 +18,13 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Sprite[] images;
     [SerializeField] private TextMesh scoreLabel;
     [SerializeField] private TextMesh triesLabel;
+    [SerializeField] private TextMesh timeLabel;
     [SerializeField] private AudioSource source;
     [SerializeField] private List<AudioClip> clips = new List<AudioClip>();
 
     private int _score = 0;
     private int _tries = 0;
+    private float _time = 0f;
     private Card _firstRevealed;
     private Card _secondRevealed;
 
@@ -62,7 +64,20 @@ public class SceneController : MonoBehaviour
         }
     }
 
-  
+
+    private void Update()
+    {
+        AdvanceTime();
+    }
+
+    private void AdvanceTime()
+    {
+        _time += Time.deltaTime;
+        int seconds = ((int)_time % 60);
+        int minutes = ((int)_time / 60);
+        timeLabel.text = "Time elapsed: " + string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 
     // Start is called before the first frame update
     private void Start()
