@@ -11,8 +11,8 @@ public class SceneController : MonoBehaviour
 
     public const int nrRows = 3;
     public const int nrColumns = 6;
-    public const float offsetX = 4.5f;
-    public const float offsetY = 4f;
+    public const float offsetX = 2.5f;
+    public const float offsetY = 3f;
 
     [SerializeField] private Card mainCard;
     [SerializeField] private Sprite[] images;
